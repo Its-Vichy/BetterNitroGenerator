@@ -15,6 +15,7 @@
 ## 🐺 Features:
 ```cs
 /*
+  *- Very Fast
   *- Proxy support: http/s, socks4/5, premieum (with password)
   *- Remove worker with invalid proxy
   *- Remove worker with x amount of errors
@@ -34,6 +35,17 @@
     https://0.0.0.0:1337
     socks4://0.0.0.0:1337
     socks5://0.0.0.0:1337
+*/
+```
+
+#
+
+## 🐺 How it work?:
+```cs
+/*
+  *- Create one thread (worker) / proxy, that is the best way to be fast !
+  *- When the thread get rate limited he stop the time of rate limit (he get it on discord response) (but other thread work !)
+  *- If you have lot of good proxies the generator work better, but if you have not enought of proxies the generator will be slow.
 */
 ```
 
