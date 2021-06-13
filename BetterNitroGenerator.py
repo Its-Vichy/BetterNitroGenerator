@@ -22,10 +22,9 @@ class Worker(threading.Thread):
                 printer(Fore.BLACK, 'MTRY', code, ' MAX  RETRY ', 'KILL  WORKER', total_retry)
                 break
 
-            code = ''.join([random.choice(string.ascii_letters + string.digits) for i in range(16)])
+            code = ''.join([random.choice(string.ascii_letters + string.digits) for i in range(24)])
             try:
-                response = requests.get(f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}', headers= {'content-type': 'application/json'}, proxies= self.proxy, timeout= 3500)
-                message  = response.json()['message']
+                response = requests.get(f'https://discordapp.com/api/v6/entitlements/gift-codes/5P8pe6sKYe93jKcgz8GrjJ6C', headers= {'content-type': 'application/json'}, proxies= self.proxy, timeout= 3500)
                 status   = response.status_code
 
                 if status == 200:
@@ -33,6 +32,11 @@ class Worker(threading.Thread):
                     
                     with open('./hit.txt', 'a+') as hit:
                         hit.write(code + '\n')
+
+                try:
+                    message  = response.json()['message']
+                except:
+                    pass
 
                 if message == 'Unknown Gift Code':
                     printer(Fore.MAGENTA, 'INVA', code, 'INVALID CODE', 'CHECK  OTHER', total_retry)
