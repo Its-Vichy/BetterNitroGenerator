@@ -24,7 +24,7 @@ class Worker(threading.Thread):
 
             code = ''.join([random.choice(string.ascii_letters + string.digits) for i in range(24)])
             try:
-                response = requests.get(f'https://discordapp.com/api/v6/entitlements/gift-codes/5P8pe6sKYe93jKcgz8GrjJ6C', headers= {'content-type': 'application/json'}, proxies= self.proxy, timeout= 3500)
+                response = requests.get(f'https://discordapp.com/api/v6/entitlements/gift-codes/{code}', headers= {'content-type': 'application/json'}, proxies= self.proxy, timeout= 3500)
                 status   = response.status_code
 
                 if status == 200:
